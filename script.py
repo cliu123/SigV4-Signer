@@ -7,6 +7,8 @@ from urllib.parse import urlencode, quote_plus
 from datetime import datetime
 
 # Your IAM User Credentials (Replace these with your own credentials)
+access_key = ''
+secret_key = ''
 
 # AWS and OpenSearch Configuration
 SERVICE_NAME = 'opensearch'  # OpenSearch service name in AWS
@@ -80,7 +82,7 @@ def generate_signed_url():
 
     # canonical_querystring = urlencode({
     #     'X-Amz-Algorithm': algorithm,
-    #     'X-Amz-Credential': f'{ACCESS_KEY}/{credential_scope}',
+    #     'X-Amz-Credential': f'{access_key}/{credential_scope}',
     #     'X-Amz-Date': amz_date,
     #     'X-Amz-Expires': '300',  # URL expiry in seconds
     #     'X-Amz-SignedHeaders': signed_headers,
