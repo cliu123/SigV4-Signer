@@ -7,8 +7,9 @@ from urllib.parse import urlencode, quote_plus
 from datetime import datetime
 
 # Your IAM User Credentials (Replace these with your own credentials)
-access_key = ''
-secret_key = ''
+ACCESS_KEY = os.getenv('AWS_ACCESS_KEY')
+SECRET_KEY = os.getenv('AWS_SECRET_KEY')
+# SESSION_TOKEN = os.getenv('AWS_SESSION_TOKEN')
 
 # AWS and OpenSearch Configuration
 SERVICE_NAME = 'opensearch'  # OpenSearch service name in AWS
