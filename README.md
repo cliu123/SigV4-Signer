@@ -16,9 +16,11 @@ Python 3.9.6
 `pip install -r requirements.txt`
 
 # Set environment variables
-`export AWS_ACCESS_KEY_ID=<access_key_of_iam_user>`
+`export AWS_ACCESS_KEY_ID=<access_key>`
 
-`export AWS_SECRET_ACCESS_KEY=<secret_key_of_iam_user>`
+`export AWS_SECRET_ACCESS_KEY=<secret_key>`
+
+[Optional]`export AWS_SESSON_TOKEN=<session_token>` // This is only for temporary credential
 
 `export REGION=<region_of_neo_app>` // e.g us-west-2
 
