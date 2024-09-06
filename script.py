@@ -1,10 +1,7 @@
 import hashlib
 import hmac
-import requests
 from urllib.parse import urlencode, quote_plus
-from datetime import datetime
 
-from botocore.auth import SigV4Auth
 from botocore.awsrequest import AWSRequest
 from botocore.session import Session
 from botocore import crt
@@ -70,11 +67,25 @@ def create_aws_signed_request():
 
     # Create the AWSRequest object (similar to signableRequest in Java)
     request = AWSRequest(method=method, url=url, headers=headers)
+    print("!!!! not yet signed request method")
+    print(request.method)
+    print("!!!! not yet signed request url")
+    print(request.url)
     print("!!!! not yet signed request headers")
     print(request.headers)
 
     # Sign the request using SigV4Auth
     credentials = session.get_credentials().get_frozen_credentials()
+    cred = session.get_credentials()
+    print("%%%%%%%access_key")
+    print(cred.access_key)
+    print("%%%%%%%secret_key")
+    print(cred.secret_key)
+    # request.context["payload_signing_enabled"] = False
+    print("*********SERVICE_NAME")
+    print(SERVICE_NAME)
+    print("*********REGION")
+    print(REGION)
     signer = crt.auth.CrtSigV4Auth(session.get_credentials(), SERVICE_NAME, REGION)
     print("!!!!!before signing request!!!!!")
     print(request.headers)
