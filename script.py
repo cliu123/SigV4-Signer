@@ -86,7 +86,11 @@ def create_aws_signed_request():
     print(SERVICE_NAME)
     print("*********REGION")
     print(REGION)
-    signer = crt.auth.CrtSigV4Auth(session.get_credentials(), SERVICE_NAME, REGION)
+    cred = session.get_credentials()
+    print("*********session token")
+    print(cred.token)
+    session_token = cred.token
+    signer = crt.auth.CrtSigV4Auth(cred, SERVICE_NAME, REGION)
     print("!!!!!before signing request!!!!!")
     print(request.headers)
     signer.add_auth(request)
@@ -100,7 +104,7 @@ def create_aws_signed_request():
     print("!!!! signed request headers")
     print(request.headers)
 
-    return signed_url, signed_headers
+    return signed_url, signed_headers, cred
 
 
 def generate_signed_url():
@@ -116,7 +120,7 @@ def generate_signed_url():
     # amz_date = now.strftime('%Y%m%dT%H%M%SZ')  # e.g. 20240904T223312Z
     # date_stamp = now.strftime('%Y%m%d')  # e.g. 20240904
 
-    signed_url, signed_headers = create_aws_signed_request()
+    signed_url, signed_headers, cred = create_aws_signed_request()
 
     amz_date = signed_headers.get('X-Amz-Date')
     auth_header = signed_headers.get('Authorization')
@@ -174,8 +178,8 @@ def generate_signed_url():
     }
 
     # If using temporary credentials, include the security token in the query string
-    # if SESSION_TOKEN:
-    #     query_params['X-Amz-Security-Token'] = SESSION_TOKEN
+    if "x-amz-security-token" in signed_headers:
+        query_params['X-Amz-Security-Token'] = cred.token
 
     canonical_querystring = urlencode(query_params, quote_via=quote_plus)
 
