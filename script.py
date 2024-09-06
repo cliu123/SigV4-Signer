@@ -11,8 +11,8 @@ from botocore import crt
 
 # AWS and OpenSearch Configuration
 SERVICE_NAME = 'opensearch'  # OpenSearch service name in AWS
-REGION = 'us-west-2'  # Ensure this matches the region of your OpenSearch cluster
-DASHBOARDS_ENDPOINT = 'dashboards-cgliugamedayidc0904-f46qvyl4u4b0c6cb3c3a.us-west-2.opensearch-beta.amazonaws.com'
+REGION = os.getenv('REGION')  # Ensure this matches the region of your OpenSearch cluster
+DASHBOARDS_ENDPOINT = os.getenv('DASHBOARDS_ENDPOINT')
 
 # Create the canonical request for AWS Signature V4
 def create_canonical_request(method, canonical_uri, canonical_querystring, canonical_headers, signed_headers,
