@@ -22,7 +22,7 @@ Python 3.9.6
 
 `export REGION=<region_of_neo_app>` // e.g us-west-2
 
-`export DASHBOARDS_ENDPOINT= '<Neo_dashboards_url>'` // Note: `https://` needs to be removed if any. e.g 'dashboards-cgliugamedayidc0904-f46qvyl4u4b0c6cb3c3a.us-west-2.opensearch-beta.amazonaws.com'
+`export DASHBOARDS_ENDPOINT='<Neo_dashboards_url>'` // Note: `https://` needs to be removed if any. e.g 'dashboards-cgliugamedayidc0904-f46qvyl4u4b0c6cb3c3a.us-west-2.opensearch-beta.amazonaws.com'
 
 # Run script.py
 `Python script.py`
