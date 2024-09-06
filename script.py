@@ -8,6 +8,7 @@ from botocore.auth import SigV4Auth
 from botocore.awsrequest import AWSRequest
 from botocore.session import Session
 from botocore import crt
+import os
 
 # AWS and OpenSearch Configuration
 SERVICE_NAME = 'opensearch'  # OpenSearch service name in AWS
