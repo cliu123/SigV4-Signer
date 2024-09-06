@@ -1,15 +1,26 @@
 # How to use the script
+# Install Python 3.9.2
+`brew install pyenv` - For macOS (with Homebrew):
+`pyenv install 3.9.6`
+`pyenv install 3.9.6`
+```
+% python --version
+
+Python 3.9.6
+```
+
+
 # Install dependencies
 `pip install -r requirements.txt`
 
 # Set environment variables
-export AWS_ACCESS_KEY_ID=<access_key_of_iam_user>
+`export AWS_ACCESS_KEY_ID=<access_key_of_iam_user>`
 
-export AWS_SECRET_ACCESS_KEY=<secret_key_of_iam_user>
+`export AWS_SECRET_ACCESS_KEY=<secret_key_of_iam_user>`
 
-export REGION=<region_of_neo_app> // e.g us-west-2
+`export REGION=<region_of_neo_app>` // e.g us-west-2
 
-export DASHBOARDS_ENDPOINT= <Neo_dashboards_url> // e.g'dashboards-cgliugamedayidc0904-f46qvyl4u4b0c6cb3c3a.us-west-2.opensearch-beta.amazonaws.co
+`export DASHBOARDS_ENDPOINT= <Neo_dashboards_url>` // e.g'dashboards-cgliugamedayidc0904-f46qvyl4u4b0c6cb3c3a.us-west-2.opensearch-beta.amazonaws.co
 # Run script.py
 `Python script.py`
 # Example Output(A signed URL expires in 5mins)
