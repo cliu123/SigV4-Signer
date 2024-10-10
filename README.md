@@ -1,5 +1,5 @@
 # How to use the script
-# Install Python 3.9.2
+# Install Python 3.9.6
 `brew install pyenv` - For macOS (with Homebrew):
 
 `pyenv install 3.9.6`
